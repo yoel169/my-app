@@ -1,17 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import './style.css';
+import MyForm from './components/Form.js';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+function MyButton(props){
+
+  const arr = props.data;
+  
+  const buttons = arr.map((val,index)=>
+    <button class={"navbutton"} id ={"bnav"+index}>{val}</button>
+  );
+  return buttons;   
+
+}
+
+const bs = ["Home", "Memes", "My Blog","Resume","Contact","About"];
+
+const el = (
+  <div>
+    <MyForm  />
+    <h1 id="title">Welcome to my website!</h1> 
+    <div class="nav-group">
+    <MyButton data = {bs}/>
+    </div>
+
+  </div>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+ReactDOM.render(
+  el, 
+  document.getElementById('root')
+);

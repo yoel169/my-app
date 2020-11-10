@@ -1,0 +1,11 @@
+
+#form{
+    float: right;
+    display:inline;
+    position: relative;
+    right: 10%;
+}
+
+p{
+    font-size: larger;
+}
