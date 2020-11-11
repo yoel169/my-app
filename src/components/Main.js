@@ -33,7 +33,7 @@ class Main extends React.Component {
       return (
           <HashRouter>
             <div>
-                <h1 id="title">Welcome to my website!</h1> 
+                <h1 id="title">Yoel's Corner</h1> 
                 <div class="nav-group">
                     <button class={"navbutton"} id ={"bnav0"}><NavLink to={"/"}>Home</NavLink></button>
                     <this.MyButton />
