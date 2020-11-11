@@ -1,4 +1,6 @@
-class MyComponent extends React.Component {
+import React from 'react';
+
+class Blog extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -9,13 +11,14 @@ class MyComponent extends React.Component {
   }
 
   componentDidMount() {
-    fetch("https://api.example.com/items")
-      .then(res => res.json())
+    fetch("https://api.github.com/repos/yoel169/my-app/contents/src/components/data/blog.json")
+      .then(result => result.json())
       .then(
         (result) => {
           this.setState({
             isLoaded: true,
-            items: result.items
+            //get content off response, decode, then grab the items inside the array
+            items: JSON.parse(atob(result.content)).items
           });
         },
         // Note: it's important to handle errors here
@@ -38,13 +41,16 @@ class MyComponent extends React.Component {
       return <div>Loading...</div>;
     } else {
       return (
-        <ul>
-          {items.map(item => (
-            <li key={item.id}>
-              {item.name} {item.entry}
-            </li>
+        <div>
+          <h1 id="title">My Blog</h1>
+          <h2>This is my blog where I keep you updated with everything that's happening.</h2>
+          {items.map(item => (  
+            <div>   
+            <p>Posted: {item.date}</p>
+            <p>{item.entry}</p>
+            </div>           
           ))}
-        </ul>
+        </div>
       );
     }
   }

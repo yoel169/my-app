@@ -2,9 +2,18 @@
     "items": [
         {
         "id": "entry1",
-        "name": "yoel",
-        "date": "11/11/2020",
-        "entry": "Today was a good day."
+        "date": "11/10/2020",
+        "entry":"Last few days I've been working on my own website.I've learned html,css,js, and react. Today, I learned that Github lets you host your own project websites for free, and how to use react-router to make a SPA."         
+        },
+        {
+            "id": "entry2",
+            "date": "11/11/2020",
+            "entry": "I learned how to use fetch to get data in a remote database today. I was thinking about implementing a blog entry where anyone can post an entry but for security reasons I wont be doing that. I want to post memes in ... memes and I don't know if I need an about section."
+        },
+        {
+            "id": "entry3",
+            "date": "11/11/2020",
+            "entry": "Today was a good day."
         }
     ]
 }
