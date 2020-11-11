@@ -1,23 +1,21 @@
-import React, { Component } from "react";
- 
-class Blog extends React.Component {
+class MyComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       error: null,
       isLoaded: false,
-      entries: []
+      items: []
     };
   }
 
   componentDidMount() {
-    fetch('https://api.github.com/repos/yoel169/my-app/contents/src/components/data/blog.json')
+    fetch("https://api.example.com/items")
       .then(res => res.json())
       .then(
         (result) => {
           this.setState({
             isLoaded: true,
-            items: result.entries
+            items: result.items
           });
         },
         // Note: it's important to handle errors here
@@ -33,18 +31,17 @@ class Blog extends React.Component {
   }
 
   render() {
-    const { error, isLoaded, entries } = this.state;
+    const { error, isLoaded, items } = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
       return <div>Loading...</div>;
     } else {
-      console.log(entries);
       return (
         <ul>
-          {entries.map(entry => (
-            <li id={entry.id}>
-              {entry.name} {entry.entry}
+          {items.map(item => (
+            <li key={item.id}>
+              {item.name} {item.entry}
             </li>
           ))}
         </ul>
