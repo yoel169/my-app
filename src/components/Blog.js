@@ -6,18 +6,18 @@ class Blog extends React.Component {
     this.state = {
       error: null,
       isLoaded: false,
-      items: []
+      entries: []
     };
   }
 
   componentDidMount() {
-    fetch("https://api.github.com/repos/yoel169/my-app/contents")
+    fetch('https://api.github.com/repos/yoel169/my-app/contents/src/components/data/blog.json')
       .then(res => res.json())
       .then(
         (result) => {
           this.setState({
             isLoaded: true,
-            items: result.items
+            items: result.entries
           });
         },
         // Note: it's important to handle errors here
@@ -33,17 +33,18 @@ class Blog extends React.Component {
   }
 
   render() {
-    const { error, isLoaded, items } = this.state;
+    const { error, isLoaded, entries } = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
       return <div>Loading...</div>;
     } else {
+      console.log(entries);
       return (
         <ul>
-          {items.map(item => (
-            <li key={item.id}>
-              {item.name} {item.price}
+          {entries.map(entry => (
+            <li id={entry.id}>
+              {entry.name} {entry.entry}
             </li>
           ))}
         </ul>
