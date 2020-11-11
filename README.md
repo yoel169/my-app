@@ -1,6 +1,7 @@
 # Getting Started with Create React App
 
-This project was made to develop my full stack skills using: html, css, JavaScript, React, GitHub, and API calls.
+This project was made to create a website and develop my full stack skills using: html, css, JavaScript, React, and GitHub API.
+website: yoel169.github.io/my-app/
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
